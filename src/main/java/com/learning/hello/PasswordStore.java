@@ -5,7 +5,7 @@ import java.util.List;
 public class PasswordStore {
     private static List<String> passwordList = new ArrayList<>();
 
-    public static void addPassword(String password) {
+    public  void addPassword(String password) {
         passwordList.add(password);
     }
 

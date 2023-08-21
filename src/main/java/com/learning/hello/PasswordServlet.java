@@ -14,27 +14,20 @@ public class PasswordServlet extends HttpServlet {
     public  void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         PrintWriter out = response.getWriter();
-         
         String enterPassword = request.getParameter("password");
         String confirmPassword = request.getParameter("confirmPassword");
 
         if (enterPassword != null && confirmPassword != null && enterPassword.equals(confirmPassword)) {
-        	if (p.PasswordExist(enterPassword)) {
+        	if (PasswordStore.PasswordExist(enterPassword)) {
                 p.addPassword(enterPassword);  
                 out.println("<p> Password is taken.</p>");
-               
             } else {
-                 
-                out.println("<p>The password you entered is already present. Please try again.</p>");
-         
+                       out.println("<p>The password you entered is already present. Please try again.</p>");
             }
             
            
         } else {
-     
-            
             out.println("<p>Entered and Confirmed passwords donot match</p>");
-         
         }
     }
 }
